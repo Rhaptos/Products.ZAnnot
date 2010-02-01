@@ -1,0 +1,30 @@
+ZAnnot 0.5
+  - i18n Translation Support
+
+ZAnnot 0.4
+  - Store and send annotation body encoding: UTF-8 should work now
+  - Added Historical mixin for ZAnnotation objects
+  - Annotation body viewing attached to 'View' tab
+  - Implemented PUT method for updating annotations
+  - Generate annotation body URL on the fly so if the folder gets moved the URLs will still be correct
+  - Fixed post reply
+  - Fixed Content-Type header for IE
+
+ZAnnot 0.3
+  - Completely refactored security to use Zope's decalrative security
+    mechanism 
+  - Refactored create/update annotation code
+  - Removed deleteAnnotation method in favor of the standard DELETE
+    machinery
+  - Use non-deletable properties for ZAnnotation metadata
+  - Use DateTime to generate unique annotation IDs (thanks to Claudio
+    Vuerli for this suggestion)
+
+ZAnnot 0.2
+  - Removed *.pyc files
+  - Removed some debugging code
+
+ZAnnot 0.1
+  - Initial release
+
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<r:RDF xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:d="http://purl.org/dc/elements/1.0/"
+       xmlns:t="http://www.w3.org/2001/03/thread#"
+       xmlns:a="http://www.w3.org/2000/10/annotation-ns#"
+       xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <tal:block tal:omit-tag="" tal:repeat="annot options/annotations">
+    <t:Reply tal:condition="annot/root"
+             tal:attributes="d:language annot/language;
+                             a:created annot/created/HTML4;
+                             d:date annot/date/HTML4;
+                             d:title annot/title;
+                             d:creator annot/creator;
+                             r:about annot/absolute_url;">
+      <r:type tal:attributes="r:resource annot/type" />
+      <a:context tal:content="annot/context" />
+      <a:body tal:attributes="r:resource python:annot.body or '/'.join((annot.absolute_url(), 'annotationBody'))" />
+      <t:root tal:attributes="r:resource annot/root" />
+      <t:inReplyTo tal:attributes="r:resource annot/inreplyto" />
+    </t:Reply>
+    <a:Annotation tal:condition="not:annot/root" 
+                  tal:attributes="a:context annot/context;
+                                  d:language annot/language;
+                                  a:created annot/created/HTML4;
+                                  d:date annot/date/HTML4;
+                                  d:title annot/title;
+                                  d:creator annot/creator;
+                                  r:about annot/absolute_url;">
+      <r:type tal:attributes="r:resource annot/type" />
+      <a:context tal:content="annot/context" />
+      <a:annotates tal:attributes="r:resource annot/annotates" />
+      <a:body tal:attributes="r:resource python:annot.body or '/'.join((annot.absolute_url(), 'annotationBody'))" />
+    </a:Annotation>
+  </tal:block>
+
+</r:RDF>
+
+
+

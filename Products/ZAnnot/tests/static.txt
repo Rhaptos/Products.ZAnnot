@@ -1,0 +1,14 @@
+Static Implementation Tests
+===========================
+ 	
+Let's just make sure that our static views are working as expected.
+	
+The first thing we need to do is to make sure the interfaces are
+being correctly implemented::
+ 	
+    >>> from Products.ZAnnot.ZAnnot import ZAnnotation
+    >>> ZAnnotation.meta_type == 'Annotation'
+    True
+    >>> ZAnnotation._properties
+    ({'type': 'string', 'id': 'title', 'mode': 'w'}, {'type': 'string', 'id': 'content_type', 'mode': 'w'}, {'type': 'string', 'id': 'type', 'mode': 'w'}, {'type': 'string', 'id': 'annotates', 'mode': 'w'}, {'type': 'string', 'id': 'context', 'mode': 'w'}, {'type': 'string', 'id': 'language', 'mode': 'w'}, {'type': 'string', 'id': 'creator', 'mode': 'w'}, {'type': 'date', 'id': 'created', 'mode': 'w'}, {'type': 'date', 'id': 'date', 'mode': 'w'}, {'type': 'string', 'id': 'body', 'mode': 'w'}, {'type': 'string', 'id': 'root', 'mode': 'w'}, {'type': 'string', 'id': 'inreplyto', 'mode': 'w'}, {'type': 'string', 'id': 'encoding', 'mode': 'w'})
+

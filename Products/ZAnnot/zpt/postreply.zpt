@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<r:RDF xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:a="http://www.w3.org/2000/10/annotation-ns#"
+       xmlns:d="http://purl.org/dc/elements/1.0/"
+       xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+       xmlns:t="http://www.w3.org/2001/03/thread#"
+       tal:define="result options/result" >
+  
+  <t:Reply tal:condition="result/root"
+           tal:attributes="r:about options/location;
+                           d:creator result/creator;">
+    <t:inReplyTo tal:attributes="r:resource result/inreplyto" />
+    <a:context tal:content="result/context" />
+    <a:body tal:attributes="r:resource python:result.body or '/'.join((result.absolute_url(), 'annotationBody'))" />
+  </t:Reply>
+  <a:Annotation tal:condition="not:result/root"
+                tal:attributes="r:about options/location;
+                                 d:creator result/creator;">
+    <a:annotates tal:attributes="r:resource result/annotates" />
+    <a:context tal:content="result/context" />
+    <a:body tal:attributes="r:resource python:result.body or '/'.join((result.absolute_url(), 'annotationBody'))" />
+  </a:Annotation> 
+
+</r:RDF>
+
+
+

@@ -1,0 +1,74 @@
+Security Use Cases
+
+  Zope's security mechanism is extremely flexible and allows for many
+  ways to setup ZAnnot.  Here are some common setups that you might
+  want to try.
+
+
+  Totally Open Annotation Server
+
+    - Anonymous users can view, post, and delete annotations
+
+    The site manager should create the 'Annotation Server' object.
+    Make sure the following permission settings are active on the
+    annotation server object (either explicitly or through
+    acquisition)::
+    
+      Access contents information : Anonymous
+      View			  : Anonymous
+      Aannot: Add Annotation	  : Anonymous
+      ZAnnot: Delete Annotation	  : Anonymous
+      ZAnnot: Edit Annotaton	  : Anonymous
+
+
+  "Normal" Server (This the default setup for ZAnnot)
+
+    - Anonymous users can view annotations
+
+    - Authenticated users can post, edit and delete their own annotations
+
+    - Site managers can delete any/all annotations
+
+    The site manager should create the 'Annotation Server' object as
+    well as user accounts for anyone allowed to post an annotation.
+    Make sure the following permission settings are active on the
+    annotation server object (either explicitly or through
+    acquisition)::
+
+      Access contents information : Anonymous
+      View			  : Anonymous
+      ZAnnot: Add Annotation	  : Authenticated
+      ZAnnot: Delete Annotation	  : Owner, Manager
+      ZAnnot: Edit Annotaton	  : Owner, Manager
+
+
+  Private Server
+
+    - Only Authenticated users can view annotations
+
+    - Authenticated users can post, edit and delete their own annotations
+
+    - Site managers can delete any/all annotations
+
+    The site manager should create the 'Annotation Server' object as
+    well as user accounts for anyone who will be able to view and post
+    annotations.  Make sure the following permission settings are
+    active on the annotation server object (either explicitly or
+    through acquisition)::
+
+      Access contents information : Authenticated (and *not* Anonymous)
+      View			  : Anonymous
+      ZAnnot: Add Annotation	  : Authenticated
+      ZAnnot: Delete Annotation	  : Owner, Manager
+      ZAnnot: Edit Annotaton	  : Owner, Manager
+
+
+  Segmented Private Server
+
+    - Authenticated users can view (only) their own annotations
+  
+    - Authenticated users can post, edit and delete their own annotations
+
+    - Site managers can delete any annotations
+    
+    Not yet supported by ZAnnot

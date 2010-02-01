@@ -1,0 +1,23 @@
+<html  xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:i18n="http://namespaces.zope.org/i18n">
+    <span tal:replace="structure here/manage_page_header" />
+    <h2 tal:define="form_title string:Add Annotation"
+        tal:replace="structure here/manage_form_title">Form Title</h2>
+
+    <form action="manage_addZAnnotation" method="post">
+
+      <table> 
+	  <tr>
+	    <td align="left" valign="top"><div class="form-label">Id</div></td>
+	    <td align="left" valign="top"><input type="text" name="id" size="40" /></td>
+	  </tr>
+	  <tr>
+	    <td align="left" valign="top"><div class="form-optional">Title</div></td>
+	    <td align="left" valign="top"><input type="text" name="title" size="40" /></td>
+	  </tr>
+	  <tr><td></td><td><input type="submit" value=" Add "/></td></tr> 
+      </table>
+    </form>
+    <span tal:replace="structure here/manage_page_footer" />  
+</html>
