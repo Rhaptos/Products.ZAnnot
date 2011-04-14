@@ -1,3 +1,6 @@
+ZAnnot 0.6
+  - caching
+
 ZAnnot 0.5
   - i18n Translation Support
 
