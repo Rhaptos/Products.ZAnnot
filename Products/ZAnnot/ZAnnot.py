@@ -139,6 +139,7 @@ class ZAnnotation(File, Historical):
         if self.encoding:
             contentType = "%s; charset=%s" % (contentType, self.encoding)
         self.REQUEST.RESPONSE.setHeader('Content-Type', contentType)
+        self.REQUEST.RESPONSE.setHeader('Cache-Control', 'max-age=84600, s-maxage=31536000, public, must-revalidate')
         return str(self.data)
 
 
